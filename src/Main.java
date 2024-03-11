@@ -19,7 +19,7 @@ public class Main {
         //Задача 2
 
         float f1 = 27.12f;
-        long d1 = 987678965;
+        long d1 = 987678965549L;
         double w1 = 2.786;
         short b1 = 569;
         short b2 = -159;
@@ -45,15 +45,16 @@ public class Main {
         //Задача 4
 
         byte bottles = 16;
-        int minutes20 = 10;
-        int day = 720;
-        int day3 = 2160;
-        int day30 = 21600;
+        byte minutesPerButch = 2;
+        int minutes20 = 20;
+        int day = 1440;
+        int day3 = 4320;
+        int day30 = 43200;
 
-       minutes20 = bottles * minutes20;
-       day = day * bottles;
-       day3 = day3 * bottles;
-       day30= day30 * bottles;
+       minutes20 = bottles * (minutes20 / minutesPerButch);
+       day = (day / minutesPerButch) * bottles;
+       day3 = (day3 / minutesPerButch) * bottles;
+       day30= (day30 / minutesPerButch) * bottles;
        System.out.println("За 20 минут машина произвела " + minutes20 + " штук бутылок");
         System.out.println("За сутки машина произвела " + day + " штук бутылок");
         System.out.println("За 3 дня машина произвела " + day3 + " штук бутылок");
@@ -111,16 +112,22 @@ public class Main {
         int MashaInt = Masha + (Masha / 10);
         int DenisInt = Denis + (Denis / 10);
         int KristinaInt = Kristina + (Kristina / 10);
-        int MashaYear = (Masha / 10) * 12;
-        int DenisYear = (Denis / 10) * 12;
-        int KristinaYear = (Kristina / 10) * 12;
+        int MashaYear = Masha * 12;
+        int DenisYear = Denis * 12;
+        int KristinaYear = Kristina * 12;
+        int MashaYearInt = MashaYear + (MashaYear / 10);
+        int DenisYearInt = DenisYear + (DenisYear / 10);
+        int KristinaYearInt = KristinaYear + (KristinaYear / 10);
+        int MashaDifference = MashaYearInt - MashaYear;
+        int DenisDifference = DenisYearInt - DenisYear;
+        int KristinaDifference = KristinaYearInt - KristinaYear;
 
         System.out.println("Маша теперь получает " + MashaInt +
-                " рублей. Годовой доход вырос на " + MashaYear + " рублей.");
+                " рублей. Годовой доход вырос на " + MashaDifference + " рублей.");
         System.out.println("Денис теперь получает " + DenisInt +
-                " рублей. Годовой доход вырос на " + DenisYear + " рублей.");
+                " рублей. Годовой доход вырос на " + DenisDifference + " рублей.");
         System.out.println("Кристина теперь получает " + KristinaInt +
-                " рублей. Годовой доход вырос на " + KristinaYear + " рублей.");
+                " рублей. Годовой доход вырос на " + KristinaDifference + " рублей.");
 
 
     }
